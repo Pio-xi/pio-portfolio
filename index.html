@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pio Luberto | Web Developer & IT Support</title>
+  <meta name="description" content="Portfolio of Pio Luberto - Web Developer, WordPress Specialist and IT Support professional based in Harare, Zimbabwe." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #020617;
+      --card: rgba(255, 255, 255, 0.08);
+      --card-strong: rgba(15, 23, 42, 0.78);
+      --border: rgba(255, 255, 255, 0.12);
+      --text: #ffffff;
+      --muted: #cbd5e1;
+      --soft: #94a3b8;
+      --cyan: #22d3ee;
+      --cyan-strong: #67e8f9;
+      --violet: #8b5cf6;
+      --green: #10b981;
+      --shadow: 0 24px 80px rgba(0, 0, 0, 0.35);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -3;
+      background:
+        radial-gradient(circle at 10% 5%, rgba(34, 211, 238, 0.18), transparent 28%),
+        radial-gradient(circle at 90% 20%, rgba(139, 92, 246, 0.18), transparent 30%),
+        radial-gradient(circle at 50% 100%, rgba(16, 185, 129, 0.11), transparent 32%),
+        #020617;
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      background-image: radial-gradient(rgba(255,255,255,0.12) 1px, transparent 1px);
+      background-size: 34px 34px;
+      opacity: 0.25;
+      pointer-events: none;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1120px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid var(--border);
+      background: rgba(2, 6, 23, 0.72);
+      backdrop-filter: blur(18px);
+    }
+
+    .nav-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 0;
+    }
+
+    .logo {
+      font-size: 1.25rem;
+      font-weight: 900;
+      letter-spacing: -0.04em;
+    }
+
+    .logo span {
+      color: var(--cyan);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      align-items: center;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .nav-links a {
+      transition: 0.25s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--cyan-strong);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 13px 22px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.06);
+      color: var(--text);
+      font-weight: 700;
+      transition: 0.25s ease;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .btn-primary {
+      background: var(--cyan);
+      color: #020617;
+      border-color: var(--cyan);
+    }
+
+    .btn-primary:hover {
+      background: var(--cyan-strong);
+    }
+
+    .hero {
+      min-height: 88vh;
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 50px;
+      align-items: center;
+      padding: 80px 0;
+    }
+
+    .badge {
+      display: inline-flex;
+      border: 1px solid rgba(34, 211, 238, 0.3);
+      background: rgba(34, 211, 238, 0.1);
+      color: #cffafe;
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-size: 0.9rem;
+      margin-bottom: 24px;
+    }
+
+    .hero h1 {
+      font-size: clamp(3rem, 7vw, 5.8rem);
+      line-height: 0.94;
+      letter-spacing: -0.075em;
+      font-weight: 900;
+      max-width: 850px;
+    }
+
+    .gradient-text {
+      background: linear-gradient(90deg, var(--cyan), #a78bfa, #34d399);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero p {
+      margin-top: 28px;
+      color: var(--muted);
+      font-size: 1.1rem;
+      max-width: 650px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 34px;
+    }
+
+    .hero-card-wrap {
+      position: relative;
+      animation: float 5s ease-in-out infinite;
+    }
+
+    .hero-card-wrap::before {
+      content: "";
+      position: absolute;
+      inset: -14px;
+      background: linear-gradient(120deg, rgba(34,211,238,0.5), rgba(139,92,246,0.4));
+      border-radius: 34px;
+      filter: blur(30px);
+      opacity: 0.55;
+      z-index: -1;
+    }
+
+    .hero-card {
+      border: 1px solid var(--border);
+      background: var(--card);
+      backdrop-filter: blur(18px);
+      border-radius: 34px;
+      padding: 30px;
+      box-shadow: var(--shadow);
+    }
+
+    .card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 24px;
+    }
+
+    .card-top small {
+      color: var(--soft);
+    }
+
+    .card-top h2 {
+      font-size: 1.45rem;
+      margin-top: 4px;
+    }
+
+    .icon-box {
+      height: 52px;
+      width: 52px;
+      border-radius: 18px;
+      display: grid;
+      place-items: center;
+      background: rgba(34, 211, 238, 0.15);
+      color: var(--cyan);
+      font-size: 1.5rem;
+    }
+
+    .status-list {
+      display: grid;
+      gap: 14px;
+    }
+
+    .status-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px;
+      border-radius: 18px;
+      background: rgba(15, 23, 42, 0.78);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .status-item span:last-child {
+      color: var(--cyan);
+      font-size: 0.85rem;
+      font-weight: 700;
+    }
+
+    section {
+      padding: 85px 0;
+    }
+
+    .section-label {
+      color: var(--cyan);
+      text-transform: uppercase;
+      font-size: 0.8rem;
+      letter-spacing: 0.28em;
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-size: clamp(2.2rem, 4vw, 3.5rem);
+      line-height: 1;
+      letter-spacing: -0.055em;
+      font-weight: 900;
+      max-width: 790px;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 0.75fr 1.25fr;
+      gap: 50px;
+    }
+
+    .about-text {
+      color: var(--muted);
+      font-size: 1.08rem;
+      display: grid;
+      gap: 20px;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+      margin-top: 42px;
+    }
+
+    .skill-card,
+    .project-card,
+    .experience-card,
+    .education-card,
+    .contact-card {
+      border: 1px solid var(--border);
+      background: var(--card);
+      backdrop-filter: blur(18px);
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+    }
+
+    .skill-card {
+      padding: 24px;
+      transition: 0.3s ease;
+    }
+
+    .skill-card:hover {
+      transform: translateY(-10px) scale(1.02);
+      border-color: rgba(34,211,238,0.35);
+    }
+
+    .skill-icon {
+      height: 48px;
+      width: 48px;
+      display: grid;
+      place-items: center;
+      border-radius: 18px;
+      background: rgba(34, 211, 238, 0.14);
+      color: var(--cyan);
+      margin-bottom: 18px;
+      font-size: 1.35rem;
+    }
+
+    .skill-card h3 {
+      margin-bottom: 14px;
+      font-size: 1.15rem;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .tag {
+      font-size: 0.76rem;
+      color: var(--muted);
+      border: 1px solid rgba(255,255,255,0.09);
+      background: rgba(15, 23, 42, 0.7);
+      padding: 6px 10px;
+      border-radius: 999px;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      margin-top: 42px;
+    }
+
+    .project-card {
+      overflow: hidden;
+      transition: 0.3s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-10px);
+      border-color: rgba(34,211,238,0.35);
+    }
+
+    .project-visual {
+      height: 225px;
+      padding: 22px;
+      background: linear-gradient(135deg, rgba(34,211,238,0.28), rgba(139,92,246,0.18), rgba(15,23,42,0.8));
+    }
+
+    .project-inner {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(2, 6, 23, 0.4);
+      border-radius: 22px;
+      padding: 20px;
+    }
+
+    .project-inner small {
+      color: #cffafe;
+    }
+
+    .project-inner h3 {
+      font-size: 1.75rem;
+      line-height: 1.1;
+      letter-spacing: -0.04em;
+    }
+
+    .project-inner a {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: #cffafe;
+      margin-top: 12px;
+      font-weight: 700;
+      font-size: 0.9rem;
+    }
+
+    .project-content {
+      padding: 24px;
+    }
+
+    .project-content p {
+      color: var(--muted);
+      margin-bottom: 18px;
+    }
+
+    .experience-card {
+      padding: 34px;
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 35px;
+      margin-top: 42px;
+    }
+
+    .experience-card h3 {
+      font-size: 2rem;
+      letter-spacing: -0.04em;
+    }
+
+    .experience-card p {
+      color: var(--muted);
+      margin-top: 6px;
+    }
+
+    .experience-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .experience-list li {
+      list-style: none;
+      display: flex;
+      gap: 12px;
+      padding: 14px;
+      border-radius: 18px;
+      background: rgba(15, 23, 42, 0.6);
+      color: var(--muted);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .experience-list li::before {
+      content: "";
+      height: 9px;
+      width: 9px;
+      border-radius: 50%;
+      background: var(--cyan);
+      flex: 0 0 auto;
+      margin-top: 8px;
+    }
+
+    .education-grid {
+      display: grid;
+      grid-template-columns: 1.25fr 0.75fr;
+      gap: 24px;
+      margin-top: 42px;
+    }
+
+    .education-card {
+      padding: 32px;
+    }
+
+    .education-card h3 {
+      font-size: 1.9rem;
+      line-height: 1.1;
+      letter-spacing: -0.04em;
+    }
+
+    .education-card p {
+      color: var(--muted);
+      margin-top: 14px;
+    }
+
+    .training-card {
+      background: linear-gradient(135deg, rgba(34,211,238,0.18), rgba(139,92,246,0.18));
+    }
+
+    .contact-card {
+      text-align: center;
+      padding: 56px 34px;
+      border-radius: 38px;
+    }
+
+    .contact-card h2 {
+      font-size: clamp(2.2rem, 5vw, 4.2rem);
+      line-height: 1;
+      letter-spacing: -0.06em;
+      max-width: 790px;
+      margin: 0 auto;
+    }
+
+    .contact-card p {
+      color: var(--muted);
+      max-width: 660px;
+      margin: 22px auto 0;
+      font-size: 1.08rem;
+    }
+
+    .contact-actions {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 32px;
+    }
+
+    .contact-info {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 32px;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: 0.8s ease;
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-16px); }
+    }
+
+    @media (max-width: 950px) {
+      .hero,
+      .about-grid,
+      .experience-card,
+      .education-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .skills-grid,
+      .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .nav-links {
+        display: none;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .container {
+        width: min(100% - 28px, 1120px);
+      }
+
+      .hero {
+        padding-top: 60px;
+      }
+
+      .skills-grid,
+      .projects-grid,
+      .contact-info {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-actions,
+      .contact-actions {
+        align-items: stretch;
+      }
+
+      .btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="navbar">
+    <div class="container nav-inner">
+      <a href="#home" class="logo">Pio<span>.</span></a>
+      <nav class="nav-links">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#experience">Experience</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <a href="#contact" class="btn btn-primary">Hire Me</a>
+    </div>
+  </header>
+
+  <main>
+    <section id="home" class="hero container">
+      <div class="reveal">
+        <div class="badge">Computer Engineer • Web Developer • IT Support</div>
+        <h1>Building practical digital solutions with <span class="gradient-text">code, design, and support.</span></h1>
+        <p>
+          I’m Pio Luberto, a final-year Computer Engineering student focused on WordPress development,
+          responsive websites, IT support, networking fundamentals, and creative digital content.
+        </p>
+        <div class="hero-actions">
+          <a href="#projects" class="btn btn-primary">View Projects →</a>
+          <a href="mailto:aceluberto@gmail.com" class="btn">Email Me</a>
+        </div>
+      </div>
+
+      <div class="hero-card-wrap reveal">
+        <div class="hero-card">
+          <div class="card-top">
+            <div>
+              <small>Current Focus</small>
+              <h2>Full-Stack Growth Path</h2>
+            </div>
+            <div class="icon-box">⚡</div>
+          </div>
+          <div class="status-list">
+            <div class="status-item"><span>WordPress & Elementor</span><span>Active</span></div>
+            <div class="status-item"><span>HTML, CSS & JavaScript</span><span>Active</span></div>
+            <div class="status-item"><span>IT Support & Troubleshooting</span><span>Active</span></div>
+            <div class="status-item"><span>Networking Fundamentals</span><span>Active</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="container">
+      <div class="about-grid reveal">
+        <div>
+          <div class="section-label">About Me</div>
+          <h2 class="section-title">Hybrid technical and creative profile.</h2>
+        </div>
+        <div class="about-text">
+          <p>
+            I combine practical IT support experience with web development and digital design skills. My background includes supporting users, troubleshooting systems, maintaining ICT equipment, developing WordPress websites, and creating digital assets for events, education, and brand communication.
+          </p>
+          <p>
+            I’m currently growing toward full-stack development while keeping a strong foundation in networking, systems support, and user-focused digital solutions.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills" class="container">
+      <div class="reveal">
+        <div class="section-label">Skills</div>
+        <h2 class="section-title">A practical mix of web, support, networking, and design.</h2>
+      </div>
+
+      <div class="skills-grid">
+        <div class="skill-card reveal">
+          <div class="skill-icon">💻</div>
+          <h3>Web Development</h3>
+          <div class="tags">
+            <span class="tag">WordPress</span><span class="tag">Elementor Pro</span><span class="tag">HTML5</span><span class="tag">CSS3</span><span class="tag">JavaScript Basics</span><span class="tag">Responsive Design</span><span class="tag">Custom CSS</span>
+          </div>
+        </div>
+
+        <div class="skill-card reveal">
+          <div class="skill-icon">🛠️</div>
+          <h3>IT Support</h3>
+          <div class="tags">
+            <span class="tag">Hardware Support</span><span class="tag">Software Troubleshooting</span><span class="tag">Windows Support</span><span class="tag">Printers</span><span class="tag">User Support</span><span class="tag">Documentation</span>
+          </div>
+        </div>
+
+        <div class="skill-card reveal">
+          <div class="skill-icon">🌐</div>
+          <h3>Networking</h3>
+          <div class="tags">
+            <span class="tag">TCP/IP</span><span class="tag">DNS</span><span class="tag">DHCP</span><span class="tag">Basic Routing</span><span class="tag">Switching</span><span class="tag">Cable Crimping</span><span class="tag">Packet Tracer</span>
+          </div>
+        </div>
+
+        <div class="skill-card reveal">
+          <div class="skill-icon">🎨</div>
+          <h3>Creative Tools</h3>
+          <div class="tags">
+            <span class="tag">Canva</span><span class="tag">Figma</span><span class="tag">Lightroom</span><span class="tag">Flyers</span><span class="tag">Posters</span><span class="tag">Branding</span><span class="tag">Presentations</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="container">
+      <div class="reveal">
+        <div class="section-label">Featured Work</div>
+        <h2 class="section-title">Real websites, real deployment, real client value.</h2>
+      </div>
+
+      <div class="projects-grid">
+        <article class="project-card reveal">
+          <div class="project-visual">
+            <div class="project-inner">
+              <small>WordPress / STEM Education</small>
+              <div>
+                <h3>E Lab Robotics Website</h3>
+                <a href="https://www.elabrobotics.co.zw" target="_blank">Visit Website ↗</a>
+              </div>
+            </div>
+          </div>
+          <div class="project-content">
+            <p>
+              Designed and developed a modern WordPress website for a robotics and STEM education company, including events, blog, gallery, contact, and product showcase sections.
+            </p>
+            <div class="tags">
+              <span class="tag">WordPress</span><span class="tag">Elementor Pro</span><span class="tag">Custom CSS</span><span class="tag">Canva</span><span class="tag">Hosting</span><span class="tag">Domain Setup</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card reveal">
+          <div class="project-visual">
+            <div class="project-inner">
+              <small>Education / Frontend Customization</small>
+              <div>
+                <h3>Global College Website</h3>
+                <a href="https://www.globalcollege.co.zw" target="_blank">Visit Website ↗</a>
+              </div>
+            </div>
+          </div>
+          <div class="project-content">
+            <p>
+              Customized and polished an educational website with improved layouts, responsive sections, navigation, contact areas, and visual presentation for a professional school brand.
+            </p>
+            <div class="tags">
+              <span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span><span class="tag">WordPress</span><span class="tag">VS Code</span><span class="tag">Canva</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="experience" class="container">
+      <div class="reveal">
+        <div class="section-label">Experience</div>
+        <h2 class="section-title">Hands-on technical support in a real working environment.</h2>
+      </div>
+
+      <div class="experience-card reveal">
+        <div>
+          <h3>IT Support Intern</h3>
+          <p>Westridge Primary School</p>
+          <p>July 2024 – August 2025</p>
+        </div>
+        <ul class="experience-list">
+          <li>Provided first-line IT support to staff and learners.</li>
+          <li>Troubleshot hardware, software, printer, and basic network issues.</li>
+          <li>Maintained computer labs, classroom technology, and ICT equipment.</li>
+          <li>Created digital materials using Canva and built basic apps using MIT App Inventor.</li>
+          <li>Prepared documentation, reports, presentations, and user training support.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="education" class="container">
+      <div class="education-grid">
+        <div class="education-card reveal">
+          <div class="section-label">Education</div>
+          <h3>Bachelor of Engineering in Computer Engineering</h3>
+          <p>Chinhoyi University of Technology • 2021 – Expected 2026</p>
+          <p>
+            Focused on computer systems, networking, programming fundamentals, cybersecurity concepts, databases, and systems analysis.
+          </p>
+        </div>
+
+        <div class="education-card training-card reveal">
+          <div class="section-label">Training</div>
+          <h3>Cisco CCNAv7 Coursework</h3>
+          <p>
+            Introduction to Networks, Switching, Routing & Wireless Essentials, and Enterprise Networking, Security & Automation.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="container">
+      <div class="contact-card reveal">
+        <div class="section-label">Contact</div>
+        <h2>Let’s build something practical, clean, and useful.</h2>
+        <p>
+          Open to web development, WordPress, IT support, networking, graduate trainee, and digital technology opportunities.
+        </p>
+        <div class="contact-actions">
+          <a href="mailto:aceluberto@gmail.com" class="btn btn-primary">Email Me</a>
+          <a href="https://github.com/Pio-xi" target="_blank" class="btn">GitHub</a>
+        </div>
+        <div class="contact-info">
+          <span>📍 Harare, Zimbabwe</span>
+          <span>📞 +263 718 055 868</span>
+          <span>💼 Available for projects</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const revealElements = document.querySelectorAll('.reveal');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+        }
+      });
+    }, { threshold: 0.15 });
+
+    revealElements.forEach((element) => observer.observe(element));
+  </script>
+</body>
+</html>
