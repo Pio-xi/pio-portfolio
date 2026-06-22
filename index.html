@@ -1,29 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <title>Pio Luberto | Full-Stack Developer, Web Developer & IT Support Specialist</title>
-  <meta name="description" content="Portfolio of Pio Luberto, a Computer Engineering graduate focused on Full-Stack Development, Website development, IT support, networking fundamentals, and digital design." />
-  <meta name="keywords" content="Pio Luberto, Web Developer Zimbabwe, Full-Stack Developerr, IT Support, Computer Engineer, Portfolio, GitHub Pages" />
+  <meta name="description"
+    content="Portfolio of Pio Luberto, a Computer Engineering graduate focused on Full-Stack Development, Website development, IT support, networking fundamentals, and digital design." />
+  <meta name="keywords"
+    content="Pio Luberto, Web Developer Zimbabwe, Full-Stack Developerr, IT Support, Computer Engineer, Portfolio, GitHub Pages" />
   <meta name="author" content="Pio Luberto" />
 
   <meta property="og:title" content="Pio Luberto | Full-Stack Developer & IT Support" />
-  <meta property="og:description" content="Modern portfolio showcasing web development, WordPress, IT support, networking, and digital design projects." />
+  <meta property="og:description"
+    content="Modern portfolio showcasing web development, WordPress, IT support, networking, and digital design projects." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://pio-xi.github.io/pio-portfolio/" />
   <meta property="og:image" content="https://pio-xi.github.io/pio-portfolio/assets/elab-1.png" />
 
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Pio Luberto | Full-Stack Developer & IT Support" />
-  <meta name="twitter:description" content="Portfolio showcasing web development, WordPress, IT support, networking, and digital design work." />
+  <meta name="twitter:description"
+    content="Portfolio showcasing web development, WordPress, IT support, networking, and digital design work." />
   <meta name="twitter:image" content="https://pio-xi.github.io/pio-portfolio/assets/elab-1.png" />
 
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+    rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
 </head>
 
@@ -32,32 +38,55 @@
     <div class="loader-mark">P<span>.</span></div>
     <p>Loading portfolio...</p>
   </div>
-
+  <div id="scrollProgress"></div>
   <div class="particles" id="particles"></div>
 
   <header class="navbar">
     <div class="container nav-inner">
-      <a href="#home" class="logo" aria-label="Pio Luberto portfolio home">Pio<span>.</span></a>
-      <nav class="nav-links" aria-label="Primary navigation">
-        <a href="#about">About</a>
+
+      <a href="#home" class="logo" aria-label="Pio Luberto portfolio home">
+        Pio<span>.</span>
+      </a>
+
+      <button id="menuToggle" class="menu-toggle" aria-label="Toggle navigation menu">
+        ☰
+      </button>
+
+      <nav class="nav-links" id="mobileNav" aria-label="Primary navigation">
+
+        <a href="#about" class="active">About</a>
+
+        <a href="#services">Services</a>
+
         <a href="#skills">Skills</a>
+
         <a href="#projects">Projects</a>
-        <a href="#timeline">Timeline</a>
+
+        <a href="#timeline">Journey</a>
+
         <a href="#contact">Contact</a>
+
       </nav>
-      <button class="theme-toggle" id="themeToggle" aria-label="Toggle light and dark theme">☀️</button>
+
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle light and dark theme">
+        ☀️
+      </button>
+
     </div>
   </header>
 
   <main>
     <section id="home" class="hero container">
-      <div class="reveal">
-        <div class="badge">Computer Engineer • Full-Stack Developer • IT Support</div>
+      <div class="reveal reveal-left">
+        <div class="badge">
+          Computer Engineer • Full-Stack Developer • IT Support Specialist
+        </div>
         <h1>Building practical digital solutions with <span class="gradient-text">code, design, and support.</span></h1>
         <div class="typing-line"><span id="typingText"></span><span class="cursor">|</span></div>
         <p>
-          I’m Pio Luberto, a Computer Engineering graduate focused on Full-Stack Developement, WordPress development,
-          responsive websites, IT support, networking fundamentals, and creative digital content.
+          I'm Pio Luberto, a Computer Engineer and Full-Stack Developer who builds modern websites, digital solutions,
+          and business systems. My work combines software development, web technologies, IT support, and practical
+          problem-solving to deliver reliable technology solutions for organizations and businesses.
         </p>
         <div class="hero-actions">
           <a href="#projects" class="btn btn-primary">View Projects →</a>
@@ -66,12 +95,12 @@
         </div>
       </div>
 
-      <div class="hero-card-wrap reveal">
-        <div class="hero-card glass-card">
+      <div class="hero-card-wrap reveal reveal-right">
+        <div class="hero-card glass-card floating-card">
           <div class="card-top">
             <div>
-              <small>Current Focus</small>
-              <h2>Full-Stack Growth Path</h2>
+              <small>Professional Focus</small>
+              <h2>Current Expertise</h2>
             </div>
             <div class="icon-box">⚡</div>
           </div>
@@ -86,31 +115,188 @@
     </section>
 
     <section id="about" class="container">
-      <div class="about-grid reveal">
-        <div>
+      <div class="about-grid">
+
+        <div class="reveal reveal-left">
           <div class="section-label">About Me</div>
           <h2 class="section-title">Hybrid technical and creative profile.</h2>
         </div>
-        <div class="about-text">
-          <p>I combine practical IT support experience with web development and digital design skills. My background includes supporting users, troubleshooting systems, maintaining ICT equipment, developing WordPress websites, and creating digital assets for events, education, and brand communication.</p>
-          <p>I’m currently growing toward full-stack development while keeping a strong foundation in networking, systems support, and user-focused digital solutions.</p>
+
+        <div class="about-text reveal reveal-right">
+          <p>
+            I combine practical IT support experience with web development and digital design skills.
+            My background includes supporting users, troubleshooting systems, maintaining ICT equipment,
+            developing WordPress websites, and creating digital assets for events, education, and brand communication.
+          </p>
+
+          <p>
+            I’m currently expanding my expertise in full-stack development while maintaining a strong
+            foundation in networking, systems support, and user-focused technology solutions.
+          </p>
         </div>
+
       </div>
+    </section>
+
+    <section id="services" class="container">
+
+      <div class="reveal reveal-up">
+        <div class="section-label">Services</div>
+        <h2 class="section-title">Technology solutions I provide.</h2>
+      </div>
+
+      <div class="skills-grid">
+
+        <div class="skill-card reveal reveal-left">
+          <div class="skill-icon">⚙️</div>
+          <h3>Full-Stack Development</h3>
+          <p>
+            Development of modern web applications, business systems,
+            dashboards, APIs, and database-driven solutions.
+          </p>
+        </div>
+
+        <div class="skill-card reveal reveal-up">
+          <div class="skill-icon">🌐</div>
+          <h3>Website Development</h3>
+          <p>
+            Responsive websites built with WordPress, HTML, CSS,
+            JavaScript, and modern design practices.
+          </p>
+        </div>
+
+        <div class="skill-card reveal reveal-right">
+          <div class="skill-icon">🛠️</div>
+          <h3>IT Support</h3>
+          <p>
+            Technical support, troubleshooting, software installation,
+            hardware maintenance, and user assistance.
+          </p>
+        </div>
+
+        <div class="skill-card reveal reveal-left">
+          <div class="skill-icon">☁️</div>
+          <h3>Hosting & Deployment</h3>
+          <p>
+            Domain configuration, website migration, hosting setup,
+            deployment, and maintenance.
+          </p>
+        </div>
+
+        <div class="skill-card reveal reveal-up">
+          <div class="skill-icon">🔌</div>
+          <h3>Networking & Systems</h3>
+          <p>
+            Network troubleshooting, infrastructure support,
+            system administration, and connectivity solutions.
+          </p>
+        </div>
+
+        <div class="skill-card reveal reveal-right">
+          <div class="skill-icon">🎨</div>
+          <h3>Digital Design</h3>
+          <p>
+            Professional flyers, brochures, presentations,
+            event branding, social media graphics, and visual content.
+          </p>
+        </div>
+
+      </div>
+
     </section>
 
     <section id="skills" class="container">
       <div class="reveal">
         <div class="section-label">Skills</div>
-        <h2 class="section-title">A practical mix of web, support, networking, and design.</h2>
+        <h2 class="section-title">
+          Technical expertise across development, systems, networking, and digital solutions.
+        </h2>
+      </div>
+
+      <div class="stats-section">
+
+        <div class="stat-card reveal reveal-left">
+          <h3 class="counter" data-target="2">0</h3>
+          <p>Professional Websites</p>
+        </div>
+
+        <div class="stat-card reveal reveal-up">
+          <h3 class="counter" data-target="2">0</h3>
+          <p>Years IT Experience</p>
+        </div>
+
+        <div class="stat-card reveal reveal-up">
+          <h3 class="counter" data-target="100">0</h3>
+          <p>Design Projects</p>
+        </div>
+
+        <div class="stat-card reveal reveal-right">
+          <h3 class="counter" data-target="6">0</h3>
+          <p>Certifications</p>
+        </div>
+
       </div>
 
       <div class="skills-grid">
-        <div class="skill-card reveal" style="--level: 78%"><div class="skill-icon">💻</div><h3>Web Development</h3><div class="tags"><span class="tag">WordPress</span><span class="tag">Elementor Pro</span><span class="tag">HTML5</span><span class="tag">CSS3</span><span class="tag">JavaScript Basics</span><span class="tag">Responsive Design</span></div><div class="progress"><span></span></div></div>
-        <div class="skill-card reveal" style="--level: 82%"><div class="skill-icon">🛠️</div><h3>IT Support</h3><div class="tags"><span class="tag">Hardware Support</span><span class="tag">Software Troubleshooting</span><span class="tag">Windows Support</span><span class="tag">Printers</span><span class="tag">User Support</span></div><div class="progress"><span></span></div></div>
-        <div class="skill-card reveal" style="--level: 68%"><div class="skill-icon">🌐</div><h3>Networking</h3><div class="tags"><span class="tag">TCP/IP</span><span class="tag">DNS</span><span class="tag">DHCP</span><span class="tag">Basic Routing</span><span class="tag">Packet Tracer</span></div><div class="progress"><span></span></div></div>
-        <div class="skill-card reveal" style="--level: 86%"><div class="skill-icon">🎨</div><h3>Creative Tools</h3><div class="tags"><span class="tag">Canva</span><span class="tag">Figma</span><span class="tag">Lightroom</span><span class="tag">Flyers</span><span class="tag">Posters</span><span class="tag">Branding</span></div><div class="progress"><span></span></div></div>
+
+        <div class="skill-card reveal reveal-left">
+          <div class="skill-icon">💻</div>
+          <h3>Web Development</h3>
+          <div class="tags">
+            <span class="tag">WordPress</span>
+            <span class="tag">Elementor Pro</span>
+            <span class="tag">HTML5</span>
+            <span class="tag">CSS3</span>
+            <span class="tag">JavaScript</span>
+            <span class="tag">Responsive Design</span>
+          </div>
+          <div class="skill-footer">Professional Focus</div>
+        </div>
+
+        <div class="skill-card reveal reveal-up">
+          <div class="skill-icon">🛠️</div>
+          <h3>IT Support</h3>
+          <div class="tags">
+            <span class="tag">Hardware Support</span>
+            <span class="tag">Software Troubleshooting</span>
+            <span class="tag">Windows Support</span>
+            <span class="tag">Printers</span>
+            <span class="tag">User Support</span>
+          </div>
+          <div class="skill-footer">Practical Experience</div>
+        </div>
+
+        <div class="skill-card reveal reveal-up">
+          <div class="skill-icon">🌐</div>
+          <h3>Networking</h3>
+          <div class="tags">
+            <span class="tag">TCP/IP</span>
+            <span class="tag">DNS</span>
+            <span class="tag">DHCP</span>
+            <span class="tag">CCNA</span>
+            <span class="tag">Packet Tracer</span>
+          </div>
+          <div class="skill-footer">Networking Foundation</div>
+        </div>
+
+        <div class="skill-card reveal reveal-right">
+          <div class="skill-icon">🎨</div>
+          <h3>Creative Tools</h3>
+          <div class="tags">
+            <span class="tag">Canva</span>
+            <span class="tag">Figma</span>
+            <span class="tag">Lightroom</span>
+            <span class="tag">Flyers</span>
+            <span class="tag">Posters</span>
+            <span class="tag">Branding</span>
+          </div>
+          <div class="skill-footer">Design Portfolio</div>
+        </div>
+
       </div>
     </section>
+
+
 
     <section id="projects" class="container">
       <div class="reveal">
@@ -119,7 +305,7 @@
       </div>
 
       <div class="projects-grid">
-        <article class="project-card reveal">
+        <article class="project-card reveal reveal-left">
           <div class="screenshot-stack">
             <div class="screenshot-track">
               <img src="assets/elab-1.png" alt="E Lab Robotics homepage screenshot" loading="lazy">
@@ -131,13 +317,17 @@
           <div class="project-content">
             <small>WordPress / STEM Education</small>
             <h3>E Lab Robotics Website</h3>
-            <p>Designed and developed a modern WordPress website for a robotics and STEM education company, including events, blog, gallery, contact, and product showcase sections.</p>
-            <div class="tags"><span class="tag">WordPress</span><span class="tag">Elementor Pro</span><span class="tag">Custom CSS</span><span class="tag">Canva</span><span class="tag">Hosting</span><span class="tag">Domain Setup</span></div>
-            <div class="project-links"><a href="https://www.elabrobotics.co.zw" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Visit Website</a></div>
+            <p>Designed and developed a modern WordPress website for a robotics and STEM education company, including
+              events, blog, gallery, contact, and product showcase sections.</p>
+            <div class="tags"><span class="tag">WordPress</span><span class="tag">Elementor Pro</span><span
+                class="tag">Custom CSS</span><span class="tag">Canva</span><span class="tag">Hosting</span><span
+                class="tag">Domain Setup</span></div>
+            <div class="project-links"><a href="https://www.elabrobotics.co.zw" target="_blank"
+                rel="noopener noreferrer" class="btn btn-primary">Visit Website</a></div>
           </div>
         </article>
 
-        <article class="project-card reveal">
+        <article class="project-card reveal reveal-right">
           <div class="screenshot-stack">
             <div class="screenshot-track">
               <img src="assets/global-1.png" alt="Global College homepage screenshot" loading="lazy">
@@ -149,9 +339,13 @@
           <div class="project-content">
             <small>Education / Frontend Customization</small>
             <h3>Global College Website</h3>
-            <p>Customized and polished an educational website with improved layouts, responsive sections, navigation, contact areas, and visual presentation for a professional school brand.</p>
-            <div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span><span class="tag">WordPress</span><span class="tag">VS Code</span><span class="tag">Canva</span></div>
-            <div class="project-links"><a href="https://www.globalcollege.co.zw" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Visit Website</a></div>
+            <p>Customized and polished an educational website with improved layouts, responsive sections, navigation,
+              contact areas, and visual presentation for a professional school brand.</p>
+            <div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span
+                class="tag">JavaScript</span><span class="tag">WordPress</span><span class="tag">VS Code</span><span
+                class="tag">Canva</span></div>
+            <div class="project-links"><a href="https://www.globalcollege.co.zw" target="_blank"
+                rel="noopener noreferrer" class="btn btn-primary">Visit Website</a></div>
           </div>
         </article>
       </div>
@@ -159,15 +353,37 @@
 
     <section id="timeline" class="container">
       <div class="reveal">
-        <div class="section-label">Timeline</div>
+        <div class="section-label">Journey</div>
         <h2 class="section-title">My current technical growth path.</h2>
       </div>
       <div class="timeline">
-        <div class="timeline-card reveal"><h3>2021 – Started Computer Engineering</h3><p>Began Bachelor of Engineering in Computer Engineering at Chinhoyi University of Technology.</p></div>
-        <div class="timeline-card reveal"><h3>2021 – Cisco Networking Coursework</h3><p>Completed CCNAv7 coursework covering networks, switching, routing, wireless essentials, security, and automation.</p></div>
-        <div class="timeline-card reveal"><h3>July 2024 – August 2025 – IT Support Internship</h3><p>Provided technical support, system maintenance, documentation, user support, and digital content support at Westridge Primary School.</p></div>
-        <div class="timeline-card reveal"><h3>2025 – Web Development Projects</h3><p>Designed and developed real websites for E Lab Robotics and Global College, including WordPress, Elementor, custom CSS, hosting, and domain setup.</p></div>
-        <div class="timeline-card reveal"><h3>2026 – Graduation Path</h3><p>Continuing to grow toward full-stack development, IT support, networking, and graduate trainee opportunities.</p></div>
+        <div class="timeline-card reveal reveal-left">
+          <h3>2021 – Started Computer Engineering</h3>
+          <p>Began Bachelor of Engineering in Computer Engineering at Chinhoyi University of Technology.</p>
+        </div>
+        <div class="timeline-card reveal reveal-right">
+          <h3>2021 – Cisco Networking Coursework</h3>
+          <p>Completed CCNAv7 coursework covering networks, switching, routing, wireless essentials, security, and
+            automation.</p>
+        </div>
+        <div class="timeline-card reveal reveal-left">
+          <h3>July 2024 – August 2025 – IT Support Internship</h3>
+          <p>Provided technical support, system maintenance, documentation, user support, and digital content support
+            at
+            Westridge Primary School.</p>
+        </div>
+        <div class="timeline-card reveal reveal-right">
+          <h3>2025 – Web Development Projects</h3>
+          <p>Designed and developed real websites for E Lab Robotics and Global College, including WordPress,
+            Elementor,
+            custom CSS, hosting, and domain setup.</p>
+        </div>
+        <div class="timeline-card reveal reveal-left">
+          <h3>2026 – Bachelor of Computer Engineering Completed</h3>
+          <p>Completed a Bachelor of Engineering in Computer Engineering and continuing to build professional
+            solutions
+            in software development, IT systems, and digital technologies.</p>
+        </div>
       </div>
     </section>
 
@@ -177,32 +393,73 @@
         <h2 class="section-title">Learning foundations that support my technical path.</h2>
       </div>
       <div class="cert-grid">
-        <div class="cert-card reveal"><h3>Cisco CCNAv7: Introduction to Networks</h3><p>TelOne Centre for Learning • 2021</p></div>
-        <div class="cert-card reveal"><h3>Cisco CCNAv7: Switching, Routing & Wireless Essentials</h3><p>TelOne Centre for Learning • 2021</p></div>
-        <div class="cert-card reveal"><h3>Cisco CCNAv7: Enterprise Networking, Security & Automation</h3><p>TelOne Centre for Learning • 2021</p></div>
-        <div class="cert-card reveal"><h3>Fundamentals of Digital Marketing</h3><p>Google Digital Skills for Africa • 2019</p></div>
-        <div class="cert-card reveal"><h3>ICT Fundamentals</h3><p>HEXCO • 2019</p></div>
-        <div class="cert-card reveal"><h3>DELF A1 & A2 French</h3><p>Alliance Française • 2017–2018</p></div>
+        <div class="cert-card reveal reveal-left">
+          <h3>Cisco CCNAv7: Introduction to Networks</h3>
+          <p>TelOne Centre for Learning • 2021</p>
+        </div>
+        <div class="cert-card reveal reveal-up">
+          <h3>Cisco CCNAv7: Switching, Routing & Wireless Essentials</h3>
+          <p>TelOne Centre for Learning • 2021</p>
+        </div>
+        <div class="cert-card reveal reveal-right">
+          <h3>Cisco CCNAv7: Enterprise Networking, Security & Automation</h3>
+          <p>TelOne Centre for Learning • 2021</p>
+        </div>
+        <div class="cert-card reveal reveal-left">
+          <h3>Fundamentals of Digital Marketing</h3>
+          <p>Google Digital Skills for Africa • 2019</p>
+        </div>
+        <div class="cert-card reveal reveal-up">
+          <h3>ICT Fundamentals</h3>
+          <p>HEXCO • 2019</p>
+        </div>
+        <div class="cert-card reveal reveal-right">
+          <h3>DELF A1 & A2 French</h3>
+          <p>Alliance Française • 2017–2018</p>
+        </div>
       </div>
     </section>
 
-    <section id="github" class="container">
-      <div class="github-card glass-card reveal">
+    <section id="connect" class="container">
+      <div class="connect-card glass-card reveal reveal-up">
         <div>
-          <div class="section-label">GitHub</div>
-          <h2 class="section-title">Building my developer footprint.</h2>
-          <p>My GitHub profile will continue growing with portfolio projects, frontend experiments, and full-stack learning projects.</p>
+          <div class="section-label">Connect</div>
+          <h2 class="section-title">Professional Profiles & Contact</h2>
+          <p>
+            Explore my portfolio, development work, professional profiles,
+            and get in touch for opportunities, collaborations, or projects.
+          </p>
         </div>
-        <a href="https://github.com/Pio-xi" target="_blank" rel="noopener noreferrer" class="btn btn-primary">View GitHub</a>
+
+        <div class="connect-links">
+          <a href="https://github.com/Pio-xi" target="_blank" class="btn">
+            GitHub
+          </a>
+
+          <a href="https://www.upwork.com/" target="_blank" class="btn">
+            Upwork
+          </a>
+
+          <a href="mailto:aceluberto@gmail.com" class="btn">
+            Email
+          </a>
+
+          <a href="assets/cv.pdf" download class="btn btn-primary">
+            Download CV
+          </a>
+        </div>
       </div>
     </section>
 
     <section id="contact" class="container">
-      <div class="contact-card reveal">
+      <div class="contact-card reveal reveal-up">
         <div class="section-label">Contact</div>
         <h2>Let’s build something practical, clean, and useful.</h2>
-        <p>Open to web development, WordPress, IT support, networking, graduate trainee, and digital technology opportunities.</p>
-        <form class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+        <p>
+          Available for software development, web development, IT support, systems administration, networking, and
+          technology consulting opportunities.
+        </p>
+        <form class="contact-form" action="https://formspree.io/f/mzdlbdyj" method="POST">
           <input type="text" name="name" placeholder="Your name" aria-label="Your name">
           <input type="email" name="email" placeholder="Your email" aria-label="Your email">
           <textarea name="message" placeholder="Your message" aria-label="Your message"></textarea>
@@ -224,4 +481,5 @@
 
   <script src="js/script.js"></script>
 </body>
+
 </html>
