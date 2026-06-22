@@ -141,7 +141,7 @@ img {
 .navbar {
   position: sticky;
   top: 0;
-  z-index: 100;
+  z-index: 9999;
   border-bottom: 1px solid var(--border);
   background: rgba(2, 6, 23, 0.72);
   backdrop-filter: blur(18px);
@@ -156,6 +156,8 @@ body.light .navbar {
   justify-content: space-between;
   align-items: center;
   padding: 18px 0;
+  position: relative;
+  z-index: 9999;
 }
 
 .logo {
@@ -260,26 +262,71 @@ body.light .navbar {
   background: transparent;
   border: none;
   color: var(--text);
-  font-size: 1.8rem;
+  font-size: 2rem;
   cursor: pointer;
-  z-index: 1001;
+  padding: 10px;
+  z-index: 1002;
+  position: relative;
+  pointer-events: auto;
 }
+
+/* ===== Mobile Navigation ===== */
 
 @media (max-width: 900px) {
 
-  .menu-toggle {
-    display: block;
+  .nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
   }
+
+  .menu-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-left: auto;
+
+    width: 48px;
+    height: 48px;
+
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+
+    color: var(--text);
+    font-size: 1.5rem;
+    cursor: pointer;
+
+    z-index: 10001;
+  }
+
+  /* Hide desktop theme button */
+  #themeToggle {
+    display: none;
+  }
+
+
+  /* Mobile theme button inside menu */
+.mobile-theme-toggle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: 12px;
+}
 
   .nav-links {
 
     position: absolute;
 
     top: 80px;
-    right: 20px;
+    right: 0;
 
     width: 260px;
 
+    display: flex;
     flex-direction: column;
 
     gap: 12px;
@@ -288,7 +335,7 @@ body.light .navbar {
 
     border-radius: 20px;
 
-    background: rgba(8, 12, 24, .95);
+    background: rgba(8, 12, 24, 0.96);
 
     backdrop-filter: blur(20px);
 
@@ -305,15 +352,14 @@ body.light .navbar {
       opacity .3s ease,
       transform .3s ease,
       visibility .3s ease;
+
+    z-index: 10000;
   }
 
   .nav-links.show {
-
     opacity: 1;
     visibility: visible;
-
     transform: translateY(0);
-
   }
 
   .nav-links a {
@@ -1020,6 +1066,62 @@ body.light .tag {
   font-size: 0.95rem;
 }
 
+#scrollTopBtn {
+
+  position: fixed;
+
+  bottom: 25px;
+  right: 25px;
+
+  width: 52px;
+  height: 52px;
+
+  border: none;
+
+  border-radius: 50%;
+
+  background: linear-gradient(
+    135deg,
+    #00d4ff,
+    #8b5cf6
+  );
+
+  color: white;
+
+  font-size: 1.3rem;
+
+  cursor: pointer;
+
+  opacity: 0;
+  visibility: hidden;
+
+  transform: translateY(20px);
+
+  transition: .3s ease;
+
+  z-index: 999;
+}
+
+#scrollTopBtn.show {
+
+  opacity: 1;
+  visibility: visible;
+
+  transform: translateY(0);
+
+}
+
+#scrollTopBtn:hover {
+
+  transform: translateY(-4px);
+
+}
+
+.mobile-theme-toggle {
+  display: none;
+  width: 100%;
+}
+
 @keyframes heroFloat {
 
   0% {
@@ -1122,25 +1224,9 @@ body.light .tag {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .nav-links {
-    display: none;
-  }
-
   .stats-section {
     grid-template-columns: repeat(2, 1fr);
   }
-}
-
-@media (max-width: 900px) {
-
-  .nav-inner {
-    position: relative;
-  }
-
-  .theme-toggle {
-    margin-left: auto;
-  }
-
 }
 
 @media (max-width: 640px) {
@@ -1197,14 +1283,6 @@ body.light .tag {
 
 }
 
-@media (max-width: 900px) {
-
-  .timeline-grid {
-    grid-template-columns: 1fr;
-  }
-
-}
-
 @media (hover: none) {
 
   .project-card:hover,
@@ -1232,9 +1310,15 @@ body.light .tag {
 
 @media (max-width: 480px) {
 
+  .hero-title {
+    font-size: 3.2rem;
+    line-height: 0.95;
+  }
+
   .container {
     padding-left: 18px;
     padding-right: 18px;
   }
 
 }
+

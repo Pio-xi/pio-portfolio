@@ -75,22 +75,48 @@ if (particles) {
   }
 }
 
-const themeToggle = document.getElementById('themeToggle');
+/* ===== Theme Toggle ===== */
+
+const themeToggles = document.querySelectorAll(
+  '#themeToggle, #mobileThemeToggle'
+);
+
 const savedTheme = localStorage.getItem('portfolio-theme');
 
 if (savedTheme === 'light') {
+
   document.body.classList.add('light');
-  if (themeToggle) themeToggle.textContent = '🌙';
+
+  themeToggles.forEach(btn => {
+    btn.textContent = '🌙 Theme';
+  });
+
 }
 
-if (themeToggle) {
-  themeToggle.addEventListener('click', () => {
+themeToggles.forEach(btn => {
+
+  btn.addEventListener('click', () => {
+
     document.body.classList.toggle('light');
-    const isLight = document.body.classList.contains('light');
-    themeToggle.textContent = isLight ? '🌙' : '☀️';
-    localStorage.setItem('portfolio-theme', isLight ? 'light' : 'dark');
+
+    const isLight =
+      document.body.classList.contains('light');
+
+    themeToggles.forEach(button => {
+
+      button.textContent =
+  isLight ? '🌙 Theme' : '☀️ Theme';
+
+    });
+
+    localStorage.setItem(
+      'portfolio-theme',
+      isLight ? 'light' : 'dark'
+    );
+
   });
-}
+
+});
 
 /* ===== Animated Counters ===== */
 
@@ -354,3 +380,49 @@ if (contactForm) {
   });
 
 }
+
+/* ===== Scroll To Top ===== */
+
+const scrollTopBtn =
+  document.getElementById('scrollTopBtn');
+
+window.addEventListener('scroll', () => {
+
+  if (window.scrollY > 400) {
+
+    scrollTopBtn.classList.add('show');
+
+  } else {
+
+    scrollTopBtn.classList.remove('show');
+
+  }
+
+});
+
+scrollTopBtn?.addEventListener('click', () => {
+
+  window.scrollTo({
+
+    top: 0,
+
+    behavior: 'smooth'
+
+  });
+
+});
+
+/* ===== Close Mobile Menu On Scroll ===== */
+
+window.addEventListener('scroll', () => {
+
+  if (
+    mobileNav &&
+    mobileNav.classList.contains('show')
+  ) {
+
+    mobileNav.classList.remove('show');
+
+  }
+
+});
