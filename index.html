@@ -459,11 +459,25 @@
           Available for software development, web development, IT support, systems administration, networking, and
           technology consulting opportunities.
         </p>
-        <form class="contact-form" action="https://formspree.io/f/mzdlbdyj" method="POST">
-          <input type="text" name="name" placeholder="Your name" aria-label="Your name">
-          <input type="email" name="email" placeholder="Your email" aria-label="Your email">
-          <textarea name="message" placeholder="Your message" aria-label="Your message"></textarea>
-          <button type="submit" class="btn btn-primary">Send Message</button>
+        <form id="contactForm" class="contact-form" action="https://formspree.io/f/mzdlbdyj" method="POST">
+
+          <!-- Honeypot anti-spam field -->
+          <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none">
+
+          <input type="text" name="name" placeholder="Your Name" aria-label="Your Name" required>
+
+          <input type="email" name="email" placeholder="Your Email" aria-label="Your Email" required>
+
+          <input type="text" name="subject" placeholder="Subject" aria-label="Subject" required>
+
+          <textarea name="message" placeholder="Your Message" aria-label="Your Message" rows="6" required></textarea>
+
+          <button type="submit" class="btn btn-primary" id="submitBtn">
+            Send Message
+          </button>
+
+          <div id="formStatus"></div>
+
         </form>
         <div class="contact-actions">
           <a href="mailto:aceluberto@gmail.com" class="btn btn-primary">Email Me</a>

@@ -11,9 +11,9 @@ const revealElements = document.querySelectorAll('.reveal');
 const observer = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
     if (entry.isIntersecting) {
-  entry.target.classList.add('active');
-  observer.unobserve(entry.target);
-}
+      entry.target.classList.add('active');
+      observer.unobserve(entry.target);
+    }
   });
 }, { threshold: 0.15 });
 
@@ -116,11 +116,11 @@ const counterObserver = new IntersectionObserver((entries) => {
       } else {
         counter.textContent = target + "+";
 
-counter.classList.add('pop');
+        counter.classList.add('pop');
 
-setTimeout(() => {
-  counter.classList.remove('pop');
-}, 300);
+        setTimeout(() => {
+          counter.classList.remove('pop');
+        }, 300);
       }
     };
 
@@ -172,42 +172,6 @@ window.addEventListener('scroll', () => {
   if (progress) {
     progress.style.width = scrolled + '%';
   }
-
-});
-
-/* ===== Project Card Tilt ===== */
-
-document.querySelectorAll('.project-card').forEach(card => {
-
-  card.addEventListener('mousemove', (e) => {
-
-    const rect = card.getBoundingClientRect();
-
-    const x =
-      e.clientX - rect.left;
-
-    const y =
-      e.clientY - rect.top;
-
-    const rotateY =
-      (x / rect.width - 0.5) * 6;
-
-    const rotateX =
-      -(y / rect.height - 0.5) * 6;
-
-    card.style.transform =
-      `perspective(1000px)
-       rotateX(${rotateX}deg)
-       rotateY(${rotateY}deg)
-       translateY(-8px)`;
-
-  });
-
-  card.addEventListener('mouseleave', () => {
-
-    card.style.transform = '';
-
-  });
 
 });
 
@@ -286,4 +250,107 @@ document.querySelectorAll('.nav-links a')
 
     });
 
-});
+  });
+
+/* ===== Contact Form AJAX Submission ===== */
+
+const contactForm =
+  document.getElementById('contactForm');
+
+if (contactForm) {
+
+  contactForm.addEventListener('submit', async (e) => {
+
+    e.preventDefault();
+
+    const status =
+      document.getElementById('formStatus');
+
+    const submitBtn =
+      document.getElementById('submitBtn');
+
+    const formData =
+      new FormData(contactForm);
+
+    const name =
+      formData.get('name')?.trim();
+
+    const email =
+      formData.get('email')?.trim();
+
+    const subject =
+      formData.get('subject')?.trim();
+
+    const message =
+      formData.get('message')?.trim();
+
+    if (!name || !email || !subject || !message) {
+
+      status.className = 'error';
+
+      status.textContent =
+        'Please complete all fields before sending your message.';
+
+      return;
+    }
+
+    try {
+
+      submitBtn.classList.add('loading');
+      submitBtn.textContent = 'Sending...';
+
+      const response = await fetch(contactForm.action, {
+
+        method: 'POST',
+
+        body: formData,
+
+        headers: {
+          'Accept': 'application/json'
+        }
+
+      });
+
+      if (response.ok) {
+
+        status.className = 'success';
+
+        status.textContent =
+          '✓ Message sent successfully. I will get back to you soon.';
+
+        contactForm.reset();
+
+        setTimeout(() => {
+
+          status.textContent = '';
+
+          status.className = '';
+
+        }, 6000);
+
+      } else {
+
+        status.className = 'error';
+
+        status.textContent =
+          'Something went wrong. Please try again later.';
+
+      }
+
+    } catch (error) {
+
+      status.className = 'error';
+
+      status.textContent =
+        'Unable to send message. Please check your connection and try again.';
+
+    } finally {
+
+      submitBtn.classList.remove('loading');
+      submitBtn.textContent = 'Send Message';
+
+    }
+
+  });
+
+}
